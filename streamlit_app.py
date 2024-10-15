@@ -16,7 +16,7 @@ with col1:
     )
 
 with col2:
-    uploaded_file = st.file_uploader('upload ukc logbook file')
+    uploaded_file = st.file_uploader('upload ukc logbook file',label_visibility="collapsed")
 
 
 if uploaded_file is None:
