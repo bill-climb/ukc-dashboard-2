@@ -171,13 +171,8 @@ else:
     
     
     #content
-  
-    st.line_chart(
-        year_route_type,
-        x='year',
-        y='counts',
-        color='Grade Type',
-    )
+    st.bar_chart(data=year_route_type,  x='year', y='counts', color='Grade Type', use_container_width=True)
+    
     col1, col2, col3 = st.columns(3)
     
     with col1:
