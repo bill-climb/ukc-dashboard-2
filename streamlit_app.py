@@ -213,9 +213,7 @@ else:
     wctext = df['Crag name'].values 
 
     wordcloud = WordCloud().generate(str(wctext))
-    plt.imshow(wordcloud)
-    plt.axis("off")
-    st.write(plt)
+    st.write(wordcloud)
     
     
     st.table(df)
