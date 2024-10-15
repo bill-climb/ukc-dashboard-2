@@ -165,12 +165,19 @@ else:
     climb_style_text = (
         summary_text + " " + funny_text
     )
-    
+    # calculate the counts by grade type by year
     year_route_type=df.groupby(['year','Grade Type']).size().reset_index(name='counts')
-    
+    # Calculate the total counts in 2024
+    df_2024 = df[df['year'] == 2024]
+    total_counts_2024 = df_2024['counts'].sum()
+    # Find the grade type with the most counts in 2024
+    max_grade_type_2024 = df_2024.loc[df_2024['counts'].idxmax(), 'Grade Type']
+    annual_logs_text = "You logged " + total_counts_2024 + " climbs in 2024. Your favourite type of climbing was " + max_grade_type_2024
+
     
     
     #content
+    st.write(annual_logs_text)
     st.bar_chart(data=year_route_type,  x='year', y='counts', color='Grade Type', use_container_width=True)
     
     col1, col2, col3 = st.columns(3)
