@@ -206,6 +206,6 @@ else:
     
     
     st.table(df)
-
+    st.table(year_route_type)
 
 
