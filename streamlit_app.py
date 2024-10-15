@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import plotly.express as px 
 import plotly.graph_objects as go
 import random
+import WordCloud
 
 col1, col2 = st.columns([3,1])
 
@@ -209,9 +210,12 @@ else:
     ''
     
     ''
-    
-    
-    
+    wctext = df['Crag name'].values 
+
+    wordcloud = WordCloud().generate(str(wctext))
+    plt.imshow(wordcloud)
+    plt.axis("off")
+    st.write(plt)
     
     
     st.table(df)
