@@ -1,5 +1,12 @@
-import pandas as pd
 import streamlit as st
+st.set_page_config(layout="wide")
+import altair as alt
+import pandas as pd
+import matplotlib.pyplot as plt
+import plotly.express as px 
+import plotly.graph_objects as go
+import random
+
 
 df1 = None 
 col1, col2, col3 = st.columns(3)
