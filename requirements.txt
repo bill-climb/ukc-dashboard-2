@@ -4,3 +4,6 @@ openpyxl
 altair
 matplotlib
 plotly 
+numpy
+pillow
+wordcloud
