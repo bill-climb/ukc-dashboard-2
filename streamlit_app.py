@@ -171,7 +171,7 @@ else:
     df_2024 = year_route_type[year_route_type['year'] == 2024]
     total_counts_2024 = df_2024['counts'].sum()
     # Find the grade type with the most counts in 2024
-    max_grade_type_2024 = df_2024.loc[df_2024['counts'].idxmax(), 'Grade Type'].values[0]
+    max_grade_type_2024 = df_2024.loc[df_2024['counts'].idxmax(), 'Grade Type']
     annual_logs_text = (
         f"You logged {total_counts_2024} climbs in 2024. Your favourite type of climbing was {max_grade_type_2024}"
     )
