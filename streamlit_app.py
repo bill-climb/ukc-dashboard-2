@@ -14,7 +14,7 @@ col1, col2 = st.columns([3,1])
 with col1:
     st.title("🎈 UKC Dashboard")
     st.write(
-        "Welcome to the UKC Dashboard. Upload your data on the right hand side."
+        "Welcome to the UKC Dashboard."
     )
 
 with col2:
@@ -24,7 +24,6 @@ with col2:
         df1=pd.read_excel(uploaded_file)
         st.table(df1)
     else:
-        st.warning('you need to upload ukc logbook excel file.')
         uploaded_file = st.file_uploader('upload ukc logbook file')
 
 st.table(df1)
