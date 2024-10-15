@@ -212,8 +212,8 @@ else:
     ''
     wctext = df['Crag name'].values 
 
-    wordcloud = WordCloud().generate(str(wctext))
-    st.write(wordcloud)
+    wc = WordCloud().generate(str(wctext))
+    st.write(wc)
     
     
     st.table(df)
