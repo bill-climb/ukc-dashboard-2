@@ -169,7 +169,7 @@ else:
     year_route_type=df.groupby(['year','Grade Type']).size().reset_index(name='counts')
     # Calculate the total counts in 2024
     df_2024 = year_route_type[year_route_type['year'] == 2024]
-    total_counts_2024 = df_2024['counts'].sum().values[0]
+    total_counts_2024 = df_2024['counts'].sum()
     # Find the grade type with the most counts in 2024
     max_grade_type_2024 = df_2024.loc[df_2024['counts'].idxmax(), 'Grade Type'].values[0]
     annual_logs_text = (
