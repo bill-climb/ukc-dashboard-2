@@ -7,7 +7,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 import random
 
-uploaded_file = None
 col1, col2 = st.columns([3,1])
 
 with col1:
@@ -17,9 +16,7 @@ with col1:
     )
 
 with col2:
-    while uploaded_file is None:
-        uploaded_file = st.file_uploader('upload ukc logbook file')
-    df1=pd.read_excel(uploaded_file)
+    uploaded_file = st.file_uploader('upload ukc logbook file')
 
 if uploaded_file is None:
     st.write('upload a file')
