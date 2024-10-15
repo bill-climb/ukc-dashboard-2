@@ -7,7 +7,7 @@ st.write(
 )
 
 
-uploaded_file = st.file_uploader(“Choose a file”)
+uploaded_file = st.file_uploader('upload ukc logbook file')
 if uploaded_file is not None:
     df1=pd.read_excel(uploaded_file)
     st.table(df1)
