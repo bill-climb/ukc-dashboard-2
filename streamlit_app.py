@@ -210,11 +210,18 @@ else:
     ''
     
     ''
-    wctext = df['Crag name'].values 
+    wctext = df['Crag name'].values
 
-    wc = WordCloud().generate(str(wctext))
-    st.write(wc.show())
+    # Generate the word cloud
+    wc = WordCloud().generate(' '.join(wctext))
     
+    # Create a matplotlib figure
+    fig, ax = plt.subplots()
+    ax.imshow(wc, interpolation='bilinear')
+    ax.axis("off")  # Hide axes
+    
+    # Display the word cloud in Streamlit
+    st.pyplot(fig)
     
     st.table(df)
     st.table(year_route_type)
