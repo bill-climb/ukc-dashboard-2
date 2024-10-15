@@ -7,6 +7,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 import random
 from wordcloud import WordCloud
+from collections import Counter
+
 
 col1, col2 = st.columns([3,1])
 
@@ -211,9 +213,11 @@ else:
     
     ''
     wctext = df['Crag name'].values
-
-    # Generate the word cloud
-    wc = WordCloud().generate(' '.join(wctext))
+    # Count the frequency of each crag name
+    word_frequencies = Counter(wctext)
+    
+    # Generate the word cloud using the frequency dictionary
+    wc = WordCloud().generate_from_frequencies(word_frequencies)
     
     # Create a matplotlib figure
     fig, ax = plt.subplots()
@@ -222,7 +226,7 @@ else:
     
     # Display the word cloud in Streamlit
     st.pyplot(fig)
-    
+        
     st.table(df)
     st.table(year_route_type)
 
