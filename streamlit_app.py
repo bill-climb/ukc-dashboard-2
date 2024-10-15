@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import plotly.express as px 
 import plotly.graph_objects as go
 import random
-import wordcloud
+from wordcloud import WordCloud
 
 col1, col2 = st.columns([3,1])
 
@@ -212,7 +212,7 @@ else:
     ''
     wctext = df['Crag name'].values 
 
-    wc = wordcloud().generate(str(wctext))
+    wc = WordCloud().generate(str(wctext))
     st.write(wc)
     
     
