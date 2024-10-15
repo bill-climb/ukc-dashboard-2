@@ -19,13 +19,12 @@ with col1:
 
 with col2:
     uploaded_file = None
-    
-    if uploaded_file is not None:
-        df1=pd.read_excel(uploaded_file)
-        st.table(df1)
-    else:
+    while uploaded_file is None:
         uploaded_file = st.file_uploader('upload ukc logbook file')
+    df1=pd.read_excel(uploaded_file)
 
+while uploaded_file is None:
+    ''
 st.table(df1)
 
 
