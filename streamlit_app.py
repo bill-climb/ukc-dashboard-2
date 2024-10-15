@@ -171,10 +171,7 @@ else:
     
     
     #content
-    st.title("🎈 UKC Log Dashboard")
-    st.write(
-        "Analyse your logs"
-    )
+  
     st.line_chart(
         year_route_type,
         x='year',
