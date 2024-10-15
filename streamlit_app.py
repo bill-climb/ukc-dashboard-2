@@ -18,11 +18,11 @@ with col1:
 with col2:
     uploaded_file = st.file_uploader('upload ukc logbook file')
 
-df1 = pd.read_excel(uploaded_file)
 
 if uploaded_file is None:
     st.write('upload a file')
 else:
+    df1 = pd.read_excel(uploaded_file)
     st.table(df1)
 
 
