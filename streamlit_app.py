@@ -24,7 +24,7 @@ if uploaded_file is None:
 else:
     @st.cache_data
     def load_data():
-        df = pd.read_excel("data/logbook.xlsx")
+        df = pd.read_excel(uploaded_file)
         df[['style','style category']] = df['Style'].str.split(' ',expand=True)
         df=df.drop(columns=['Style'])
         df.rename(columns={'Partner(s)': 'Partner'}, inplace=True)
