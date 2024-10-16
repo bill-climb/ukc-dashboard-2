@@ -248,7 +248,7 @@ else:
         st.markdown("<h1 style='text-align: center;'>Yearly Profile</h1>", unsafe_allow_html=True)
         st.bar_chart(data=year_route_type,  x='year', y='counts', color='Grade Type', use_container_width=True)
    
-    col1, col2, col3, col4 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
     with col1:
         st.metric(label="", value="Top grades climbed")
     with col2:
