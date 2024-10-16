@@ -62,6 +62,7 @@ else:
         df = pd.merge(df, df_graderank, on='overall grade', how='left')
         df['grade rank']=df['grade rank'].replace(np.nan, 0)
         df['grade rank']=df['grade rank'].astype(int)
+        df['Date']=df['Date'].dt.strftime('%d %b %y')
         return df
     
     
