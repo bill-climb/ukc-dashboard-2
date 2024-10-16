@@ -247,19 +247,25 @@ else:
     with col2:
         st.markdown("<h1 style='text-align: center;'>Yearly Profile</h1>", unsafe_allow_html=True)
         st.bar_chart(data=year_route_type,  x='year', y='counts', color='Grade Type', use_container_width=True)
-   
-    col1, col2, col3, col4 = st.columns(4)
+        
+    st.markdown("<h1 style='text-align: center;'>Top routes climbed</h1>", unsafe_allow_html=True)
+
+    col1, col2, col3 = st.columns(3)
     with col1:
-        st.metric(label="", value="Top grades climbed")
-    with col2:
         st.metric(label="Trad", value=df_max_trad)
         df_top_grades_trad = df_top_grades[df_top_grades['Grade Type_x'].isin(['Trad'])] 
+        df_top_grades_trad=df_top_grades_trad[['Climb name','Date','Partner','Crag name']]
         st.write(df_top_grades_trad)
-    with col3:
+    with col2:
         st.metric(label="Sport", value=df_max_sport)
-    with col4:
+        df_top_grades_sport = df_top_grades[df_top_grades['Grade Type_x'].isin(['Sport'])] 
+        df_top_grades_sport=df_top_grades_sport[['Climb name','Date','Partner','Crag name']]
+        st.write(df_top_grades_sport)
+    with col3:
         st.metric(label="Boulder", value=df_max_boulder)
-
+        df_top_grades_boulder = df_top_grades[df_top_grades['Grade Type_x'].isin(['Bouldering'])] 
+        df_top_grades_boulder=df_top_grades_boulder[['Climb name','Date','Partner','Crag name']]
+        st.write(df_top_grades_boulder)
     col1, col2, col3 = st.columns(3)
     
     with col1:
