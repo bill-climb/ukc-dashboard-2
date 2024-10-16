@@ -249,7 +249,10 @@ else:
         st.metric(label="Days climbing in 2024",value=total_days)
 
     with col3:
-        st.metric(label="Days climbing in 2024",value=total_days)
+        st.metric(label="Partners climbed with",value=num_partners)
+
+    with col4:
+        st.metric(label="Climbed most with",value=most_counts_partner)
 
                   
     col2, col3 = st.columns([1,1])
