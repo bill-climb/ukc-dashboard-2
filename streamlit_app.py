@@ -243,8 +243,9 @@ else:
 
     with col2:
         #days of climbing
-        total_days=df['Date'].nunique()
-        st.metric(label="Days climbing",value=total_days)
+        df_2024=df[df['year'] == 2024]
+        total_days=df_2024['Date'].nunique()
+        st.metric(label="Days climbing in 2024",value=total_days)
                   
     col2, col3 = st.columns([1,1])
     
