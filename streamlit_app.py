@@ -58,7 +58,8 @@ else:
         df[['overall grade','technical grade', 'star rating']] = df['Grade'].str.split(' ',expand=True)
         df['year'] = pd.DatetimeIndex(df['Date']).year
         df['year'] = pd.to_numeric(df['year'])
-        
+        #only show rows from this year
+        df=df[(df['Date'] > '2024-01-01')]
         df = pd.merge(df, df_graderank, on='overall grade', how='left')
         df['grade rank']=df['grade rank'].replace(np.nan, 0)
         df['grade rank']=df['grade rank'].astype(int)
@@ -237,7 +238,7 @@ else:
     
     
     #content
-    col1, col2 = st.columns(2)
+    col1, col2, col3, col4 = st.columns(4)
     with col1:
         st.metric(label="Total logs", value=total_counts_2024)
 
@@ -246,6 +247,10 @@ else:
         df_2024=df[df['year'] == 2024]
         total_days=df_2024['Date'].nunique()
         st.metric(label="Days climbing in 2024",value=total_days)
+
+    with col3:
+        st.metric(label="Days climbing in 2024",value=total_days)
+
                   
     col2, col3 = st.columns([1,1])
     
