@@ -32,7 +32,7 @@ df_graderank = pd.DataFrame(grades)
 col1, col2 = st.columns([3,1])
 
 with col1:
-    st.title("🎈 UKC Dashboard")
+    st.title(":person_climbing: UKC Dashboard")
     st.write(
         "Welcome to the UKC Dashboard."
     )
@@ -42,7 +42,7 @@ with col2:
 
 
 if uploaded_file is None:
-    st.write('Head to your [UKC Logbook](https://www.ukclimbing.com/logbook/), click 'Download' and choose 'Standard Download'. Then upload the file here.')
+    st.write("Head to your [UKC Logbook](https://www.ukclimbing.com/logbook/), click 'Download' and choose 'Standard Download'. Then upload the file here.")
 else:
     @st.cache_data
     def load_data():
