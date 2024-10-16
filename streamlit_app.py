@@ -79,9 +79,9 @@ else:
     df_top_grades=pd.merge(df_filtered, df_top_grades, left_on='grade rank', right_on='max grade rank', how='inner')
     #print(df_top_grades)
 
-    df_max_trad = df_top_grades_summary['overall grade'][df_top_grades_summary['Grade Type'] == 'Trad']
-    df_max_sport = df_top_grades_summary['overall grade'][df_top_grades_summary['Grade Type'] == 'Sport']
-    df_max_boulder = df_top_grades_summary['overall grade'][df_top_grades_summary['Grade Type'] == 'Bouldering']
+    df_max_trad = df_top_grades_summary['overall grade'][df_top_grades_summary['Grade Type'] == 'Trad'].values[0]
+    df_max_sport = df_top_grades_summary['overall grade'][df_top_grades_summary['Grade Type'] == 'Sport'].values[0]
+    df_max_boulder = df_top_grades_summary['overall grade'][df_top_grades_summary['Grade Type'] == 'Bouldering'].values[0]
     
     # we want to count logs by partner
     
