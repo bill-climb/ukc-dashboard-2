@@ -45,9 +45,9 @@ else:
             "grade rank": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
                       21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
                       41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60,
-                      61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82],
+                      61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84],
             "overall grade": ["M", "D", "HD", "VD", "HVD", "S", "MS", "HS", "MVS", "VS", "HVS", "E1", "E2", "E3", 
-                      "E4", "E5", "E6", "E7", "E8", "E9", "E10", "E11", "E12", "f2", "f3", "f4", "f4+", "f5", 
+                      "E4", "E5", "E6", "E7", "E8", "E9", "E10", "E11", "E12", "f2", "f2+", "f3", "f3+", "f4", "f4+", "f5", 
                       "f5+", "f6A", "f6A+", "f6B", "f6B+", "f6C", "f6C+", "f7A", "f7A+", "f7B", "f7B+", "f7C", 
                       "f7C+", "f8A", "f8A+", "f8B", "f8B+", "f8C", "f8C+", "f9A", "f9A+", "f9B", "4", "4a", "4b", 
                       "4c", "5", "5a", "5b", "5c", "6a", "6a+", "6b", "6b+", "6c", "6c+", "7a", "7a+", "7b", 
@@ -65,6 +65,18 @@ else:
     
     
     df = load_data()
+    #calculating top grades sent
+    style_options = ['Lead', 'Sent']
+    style_category_options = ['dog', 'dnf']
+    #only show routes lead
+    df_filtered = df[df['style'].isin(style_options)] 
+    #remove dogged or dnf
+    df_filtered = df_filtered[~df_filtered['style category'].isin(style_category_options)] 
+    df_top_grades=df_filtered.groupby(['Grade Type'])['grade rank'].max().reset_index(name='max grade rank')
+    df_top_grades_summary=pd.merge(df_graderank, df_top_grades, left_on='grade rank', right_on='max grade rank', how='inner')
+    #print(df_top_grades_summary)
+    df_top_grades=pd.merge(df_filtered, df_top_grades, left_on='grade rank', right_on='max grade rank', how='inner')
+    #print(df_top_grades)
     
     # we want to count logs by partner
     
