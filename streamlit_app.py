@@ -62,7 +62,7 @@ else:
         df = pd.merge(df, df_graderank, on='overall grade', how='left')
         df['grade rank']=df['grade rank'].replace(np.nan, 0)
         df['grade rank']=df['grade rank'].astype(int)
-        df['Date']=df['Date'].dt.strftime('%d %b %y')
+        df['Date climbed']=df['Date'].dt.strftime('%d %b %y')
         return df
     
     
@@ -255,17 +255,17 @@ else:
     with col1:
         st.metric(label="Trad", value=df_max_trad)
         df_top_grades_trad = df_top_grades[df_top_grades['Grade Type_x'].isin(['Trad'])] 
-        df_top_grades_trad=df_top_grades_trad[['Climb name','Date','Partner','Crag name']]
+        df_top_grades_trad=df_top_grades_trad[['Climb name','Date climbed','Partner','Crag name']]
         st.write(df_top_grades_trad)
     with col2:
         st.metric(label="Sport", value=df_max_sport)
         df_top_grades_sport = df_top_grades[df_top_grades['Grade Type_x'].isin(['Sport'])] 
-        df_top_grades_sport=df_top_grades_sport[['Climb name','Date','Partner','Crag name']]
+        df_top_grades_sport=df_top_grades_sport[['Climb name','Date climbed','Partner','Crag name']]
         st.write(df_top_grades_sport)
     with col3:
         st.metric(label="Boulder", value=df_max_boulder)
         df_top_grades_boulder = df_top_grades[df_top_grades['Grade Type_x'].isin(['Bouldering'])] 
-        df_top_grades_boulder=df_top_grades_boulder[['Climb name','Date','Partner','Crag name']]
+        df_top_grades_boulder=df_top_grades_boulder[['Climb name','Date climbed','Partner','Crag name']]
         st.write(df_top_grades_boulder)
     col1, col2, col3 = st.columns(3)
     
