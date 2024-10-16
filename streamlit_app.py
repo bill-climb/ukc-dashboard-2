@@ -202,10 +202,12 @@ else:
     col1, col2 = st.columns(2)
     
     with col1:
+        st.write("2024 Profile")
         st.line_chart(data=df_accumulated_merged,x='Date',y='cumulative_sum')
 
     
     with col2:
+        st.write("Yearly profile")
         st.bar_chart(data=year_route_type,  x='year', y='counts', color='Grade Type', use_container_width=True)
     
     col1, col2, col3 = st.columns(3)
