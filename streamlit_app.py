@@ -249,11 +249,11 @@ else:
    
     cols = st.columns(3)
     with col1:
-    st.metric(label="Trad", value=df_max_trad)
+        st.metric(label="Trad", value=df_max_trad)
     with col2:
-    st.metric(label="Sport", value=df_max_sport)
+        st.metric(label="Sport", value=df_max_sport)
     with col3:
-    st.metric(label="Trad", value=df_max_boulder)
+        st.metric(label="Trad", value=df_max_boulder)
 
     col1, col2, col3 = st.columns(3)
     
