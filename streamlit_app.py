@@ -178,11 +178,29 @@ else:
     annual_logs_text = (
         f"You logged {total_counts_2024} climbs in 2024. Your favourite type of climbing was {max_grade_type_2024}"
     )
-
+    #accumulation by date
+    df_accumulated = df.groupby('Date').size().reset_index(name='counts')
+    print(df_accumulated)
+    range_start = '2024-01-01'
+    range_end = '2024-12-31'
+    # Create a complete date range from 2024-01-01 to 2024-12-31
+    full_range = pd.date_range(start=range_start, end=range_end, freq='D')
+    df_full_range = pd.DataFrame(full_range, columns=['Date'])
+    # Merge the original DataFrame with the full date range to include missing dates
+    df_accumulated_merged = pd.merge(df_full_range, df_accumulated, on='Date', how='left')
+    
+    # Fill missing 'value' entries with 0
+    df_accumulated_merged['counts'] = df_merged['counts'].fillna(0)
+    
+    # Calculate cumulative sum of the 'value' column
+    df_accumulated_merged['cumulative_sum'] = df_merged['counts'].cumsum().astype(int)
+    
+    
     
     
     #content
     st.write(annual_logs_text)
+    st.line_chart(data=df_accumulated_merged,x='Date',y='cumulative_sum')
     st.bar_chart(data=year_route_type,  x='year', y='counts', color='Grade Type', use_container_width=True)
     
     col1, col2, col3 = st.columns(3)
