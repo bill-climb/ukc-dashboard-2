@@ -199,8 +199,14 @@ else:
     
     #content
     st.write(annual_logs_text)
-    st.line_chart(data=df_accumulated_merged,x='Date',y='cumulative_sum')
-    st.bar_chart(data=year_route_type,  x='year', y='counts', color='Grade Type', use_container_width=True)
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.line_chart(data=df_accumulated_merged,x='Date',y='cumulative_sum')
+
+    
+    with col2:
+        st.bar_chart(data=year_route_type,  x='year', y='counts', color='Grade Type', use_container_width=True)
     
     col1, col2, col3 = st.columns(3)
     
