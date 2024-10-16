@@ -2,6 +2,7 @@ import streamlit as st
 st.set_page_config(layout="wide")
 import altair as alt
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 import plotly.express as px 
 import plotly.graph_objects as go
@@ -58,7 +59,8 @@ else:
         df_graderank = pd.DataFrame(grades)
         
         df = pd.merge(df, df_graderank, on='overall grade', how='left')
-            
+        df['grade rank']=df['grade rank'].replace(np.nan, 0)
+        df['grade rank']=df['grade rank'].astype(int)
         return df
     
     
