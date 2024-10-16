@@ -248,13 +248,17 @@ else:
         st.markdown("<h1 style='text-align: center;'>Yearly Profile</h1>", unsafe_allow_html=True)
         st.bar_chart(data=year_route_type,  x='year', y='counts', color='Grade Type', use_container_width=True)
    
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(3)
     with col1:
-        st.metric(label="Trad", value=df_max_trad)
+        st.metric(label="", value="Top grades climbed")
     with col2:
-        st.metric(label="Sport", value=df_max_sport)
+        st.metric(label="Trad", value=df_max_trad)
+        df_top_grades_trad = df_top_grades[df_top_grades['Grade Type_x'].isin(['Trad'])] 
+        st.write(top_grades_trad)
     with col3:
-        st.metric(label="Trad", value=df_max_boulder)
+        st.metric(label="Sport", value=df_max_sport)
+    with col4:
+        st.metric(label="Boulder", value=df_max_boulder)
 
     col1, col2, col3 = st.columns(3)
     
