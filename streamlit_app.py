@@ -42,7 +42,7 @@ with col2:
 
 
 if uploaded_file is None:
-    st.write("Head to your [UKC Logbook](https://www.ukclimbing.com/logbook/), click 'Download' and choose 'Standard Download'. Then upload the file here.")
+    st.write("Head to your [UKC Logbook](https://www.ukclimbing.com/logbook/), click 'Download' and choose 'Standard Download'. Then upload the file here. Your data isn't saved anywhere and will be deleted when you close or refresh the window.")
 else:
     @st.cache_data
     def load_data():
