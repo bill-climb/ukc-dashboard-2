@@ -262,7 +262,7 @@ else:
         
     st.markdown("<h1 style='text-align: center;'>Top routes climbed</h1>", unsafe_allow_html=True)
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3 = st.columns([4,3,3])
     with col1:
         st.metric(label="Trad", value=df_max_trad)
         df_top_grades_trad = df_top_grades[df_top_grades['Grade Type_x'].isin(['Trad'])] 
