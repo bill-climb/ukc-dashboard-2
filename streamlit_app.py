@@ -77,6 +77,10 @@ else:
     #print(df_top_grades_summary)
     df_top_grades=pd.merge(df_filtered, df_top_grades, left_on='grade rank', right_on='max grade rank', how='inner')
     #print(df_top_grades)
+
+    df_max_trad = df_top_grades_summary['overall grade'][df_top_grades_summary['Grade Type'] == 'Trad']
+    df_max_sport = df_top_grades_summary['overall grade'][df_top_grades_summary['Grade Type'] == 'Sport']
+    df_max_boulder = df_top_grades_summary['overall grade'][df_top_grades_summary['Grade Type'] == 'Bouldering']
     
     # we want to count logs by partner
     
@@ -242,7 +246,15 @@ else:
     with col2:
         st.markdown("<h1 style='text-align: center;'>Yearly Profile</h1>", unsafe_allow_html=True)
         st.bar_chart(data=year_route_type,  x='year', y='counts', color='Grade Type', use_container_width=True)
-    
+   
+    cols = st.columns(3)
+    with col1:
+    st.metric(label="Trad", value=df_max_trad)
+    with col2:
+    st.metric(label="Sport", value=df_max_sport)
+    with col3:
+    st.metric(label="Trad", value=df_max_boulder)
+
     col1, col2, col3 = st.columns(3)
     
     with col1:
