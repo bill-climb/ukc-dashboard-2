@@ -244,7 +244,7 @@ else:
     with col2:
         #days of climbing
         total_days=df['Date'].nunique()
-        st.metric(label="Days climbing",value=total_days
+        st.metric(label="Days climbing",value=total_days)
                   
     col2, col3 = st.columns([1,1])
     
