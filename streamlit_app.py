@@ -180,7 +180,6 @@ else:
     )
     #accumulation by date
     df_accumulated = df.groupby('Date').size().reset_index(name='counts')
-    print(df_accumulated)
     range_start = '2024-01-01'
     range_end = '2024-12-31'
     # Create a complete date range from 2024-01-01 to 2024-12-31
@@ -190,10 +189,10 @@ else:
     df_accumulated_merged = pd.merge(df_full_range, df_accumulated, on='Date', how='left')
     
     # Fill missing 'value' entries with 0
-    df_accumulated_merged['counts'] = df_merged['counts'].fillna(0)
+    df_accumulated_merged['counts'] = df_accumulated_merged['counts'].fillna(0)
     
     # Calculate cumulative sum of the 'value' column
-    df_accumulated_merged['cumulative_sum'] = df_merged['counts'].cumsum().astype(int)
+    df_accumulated_merged['cumulative_sum'] = df_accumulated_merged['counts'].cumsum().astype(int)
     
     
     
