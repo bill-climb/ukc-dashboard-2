@@ -266,17 +266,17 @@ else:
     with col1:
         st.metric(label="Trad", value=df_max_trad)
         df_top_grades_trad = df_top_grades[df_top_grades['Grade Type_x'].isin(['Trad'])] 
-        df_top_grades_trad=df_top_grades_trad[['Climb name','Date climbed','Partner','Crag name']]
+        df_top_grades_trad=df_top_grades_trad[['Climb name','Partner','Crag name']]
         st.markdown(df_top_grades_trad.style.hide(axis="index").to_html(), unsafe_allow_html=True)
     with col2:
         st.metric(label="Sport", value=df_max_sport)
         df_top_grades_sport = df_top_grades[df_top_grades['Grade Type_x'].isin(['Sport'])] 
-        df_top_grades_sport=df_top_grades_sport[['Climb name','Date climbed','Partner','Crag name']]
+        df_top_grades_sport=df_top_grades_sport[['Climb name','Crag name']]
         st.markdown(df_top_grades_sport.style.hide(axis="index").to_html(), unsafe_allow_html=True)
     with col3:
         st.metric(label="Boulder", value=df_max_boulder)
         df_top_grades_boulder = df_top_grades[df_top_grades['Grade Type_x'].isin(['Bouldering'])] 
-        df_top_grades_boulder=df_top_grades_boulder[['Climb name','Date climbed','Partner','Crag name']]
+        df_top_grades_boulder=df_top_grades_boulder[['Climb name','Crag name']]
         st.markdown(df_top_grades_boulder.style.hide(axis="index").to_html(), unsafe_allow_html=True)
     col1, col2, col3 = st.columns(3)
     
