@@ -254,7 +254,7 @@ else:
     with col2:
         st.metric(label="Trad", value=df_max_trad)
         df_top_grades_trad = df_top_grades[df_top_grades['Grade Type_x'].isin(['Trad'])] 
-        st.write(top_grades_trad)
+        st.write(df_top_grades_trad)
     with col3:
         st.metric(label="Sport", value=df_max_sport)
     with col4:
